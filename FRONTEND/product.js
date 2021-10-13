@@ -18,7 +18,7 @@ function displayProductDetail() {
             result.imageUrl
           }" alt="un ours"></img>
         </div>
-        <div class="détails col-md-6">
+        <div class="details col-md-6">
           <h3>Description du produit:</h3>
           <p id="description">${result.description}</p>
           <form name="color" action="">
@@ -29,7 +29,7 @@ function displayProductDetail() {
               </select>
             </p>
           </form>
-          <p>Prix : <span id="price">${result.price / 100}</span></p>
+          <p>Prix : <span id="price">${result.price}€</span></p>
           <button id="add_basket" class="ad-btn" >Ajouter au panier</button>
         </div>
       </div>

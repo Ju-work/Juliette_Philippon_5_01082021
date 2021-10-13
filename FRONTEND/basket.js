@@ -1,5 +1,6 @@
 showBasket()
 totalPrice()
+deleteProductToBasket()
 
 // On affiche le panier dans le localstorage
 
@@ -12,11 +13,12 @@ function showBasket(){
       + "<tr>"
       + "<td>" + element.name + "</td>"
       + "<td>" + element.colors + "</td>" 
-      + "<td>" + element.price/100 + "€" + "</td>"
+      + "<td>" + element.price + "€" + "</td>"
+      + "<td>" + '<i id="basket-trash" class="fas fa-trash-alt"></i>' + "</td>"
       + "</tr>" 
   });
   corpsHtml = corpsHtml + "</tr>"
-  document.getElementById('basket-tablebody').innerHTML =corpsHtml
+  document.getElementById('basket-tablebody').innerHTML = corpsHtml
 }
 
 function totalPrice(){
@@ -26,12 +28,57 @@ function totalPrice(){
   arrayCommande.forEach(element => { 
     price = price + element.price
   });
-  price = price / 100
-  document.getElementById('total').innerHTML =price + "€"
+  document.getElementById('total').innerHTML = price + "€"
 }
 
 
+// Supprimer les produits dans le localstorage
 
+function deleteProductToBasket(id)
+{
+
+    let removeProductInBasket = false
+
+    productsInBasket = JSON.parse(localStorage.getItem('basket'))
+
+    productsInBasket.forEach(product => {
+
+        if (product._id == id) {
+            console.log(product)
+            if (product.quantity > 1) {
+                product.quantity --
+                console.log(product)
+            }else {
+                removeProductInBasket = true
+            }
+        }
+
+        console.log(product)
+        
+    })
+
+    if (removeProductInBasket) {
+        for (let i in productsInBasket) {
+            if (id === productsInBasket[i]['_id']) {
+                productsInBasket.splice(i, 1)
+
+                if (productsInBasket.length === 0) {
+                    localStorage.removeItem('basket')
+                }
+
+                console.log('Remove => ', productsInBasket)
+            }
+        }
+    }
+
+    localStorage.setItem('basket', JSON.stringify(productsInBasket))
+    showBasket()
+    console.log('basket end =>',productsInBasket)
+    
+    // suprimer une ligne du tableau
+    localStorage.getElementById('basket-trash').setAttribute('onclik','deleteProductToBasket(\'' + product._id + '\')')
+
+}
 
 // Validation du formulaire avant l'envoi au serveur
 

@@ -25,9 +25,9 @@ function addCards(data) {
     // affiche chaque ours
     card.innerHTML += `
       <div class="col-md-4 mb-5">
-                      <div class="card rounded">
+                      <div class="card">
                           <div class="card-image">
-                              <span class="card-notify-year">${price}</span>
+                              <span class="card-notify-year">${price}€</span>
                               <img class="img-fluid" src="${produit.imageUrl}" alt="un ours" />
                           </div>
                           <div class="card-image-overlay m-auto">

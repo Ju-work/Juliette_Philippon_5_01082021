@@ -6,6 +6,7 @@
 nav {
   font-family: 'Bubbly';
   font-size: 20px;
+  background-color: #f3e9f1;
 }
 
 h4 {
@@ -14,19 +15,22 @@ h4 {
   text-align: center;
 }
 
-header{
+header {
   margin-bottom: 50px;
 }
 
-footer{
+footer {
   margin-top: 50px;
 }
-
 
 /* Category Ads */
 
 #ads {
   margin: 30px 0 30px 0;
+}
+
+.card {
+  border-radius: 20px;
 }
 
 #ads .card-notify-badge {
@@ -65,7 +69,7 @@ footer{
 #ads .card:hover {
   background: #fff;
   box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
-  border-radius: 4px;
+  border-radius: 20px;
   transition: all 0.3s ease;
 }
 
@@ -109,7 +113,35 @@ footer{
   font-size: 30px;
 }
 
+/* page produits */
+
 .img-fluid {
   height: 300px;
+  border-radius: 20px;
   object-fit: cover;
+}
+h5 {
+  font-family: 'Bubbly';
+  font-size: 50px;
+  color: #ff4444;
+}
+
+.details.col-md-6 {
+  margin-top: 20px;
+}
+
+.custom-select {
+  margin-top: 15px;
+}
+#description {
+  color: #ff4444;
+  font-weight: 600;
+}
+
+.ad-btn {
+  margin-top: 20px;
+}
+
+footer {
+  background-color: #f3e9f1;
 }
