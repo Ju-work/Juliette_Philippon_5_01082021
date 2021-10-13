@@ -1,13 +1,41 @@
-JSON.parse(localStorage.getItem("basket"))
+showBasket()
+totalPrice()
 
-function showBasket()=
+// On affiche le panier dans le localstorage
+
+function showBasket(){
+  let arrayCommande = JSON.parse(localStorage.getItem("basket"))
+  var corpsHtml = "<tr>"
+  arrayCommande.forEach(element => {
+    console.log(element)
+    corpsHtml = corpsHtml 
+      + "<tr>"
+      + "<td>" + element.name + "</td>"
+      + "<td>" + element.colors + "</td>" 
+      + "<td>" + element.price/100 + "€" + "</td>"
+      + "</tr>" 
+  });
+  corpsHtml = corpsHtml + "</tr>"
+  document.getElementById('basket-tablebody').innerHTML =corpsHtml
+}
+
+function totalPrice(){
+  let price = 0
+  let arrayCommande = JSON.parse(localStorage.getItem("basket"))
+
+  arrayCommande.forEach(element => { 
+    price = price + element.price
+  });
+  price = price / 100
+  document.getElementById('total').innerHTML =price + "€"
+}
 
 
 
 
 // Validation du formulaire avant l'envoi au serveur
 
-function validateEmail(email)= {
+function validateEmail(email){
   const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   return re.test(String(email).toLowerCase())

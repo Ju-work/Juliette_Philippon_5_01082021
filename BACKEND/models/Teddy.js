@@ -3,7 +3,7 @@ const teddies = [
     "colors": ["Tan", "Chocolate", "Black", "White"],
     "_id": "5be9c8541c9d440000665243",
     "name": "Norbert",
-    "price": 2900,
+    "price": 29.00,
     "imageUrl": "teddy_1.jpg",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
@@ -15,7 +15,7 @@ const teddies = [
     ],
     "_id": "5beaa8bf1c9d440000a57d94",
     "name": "Arnold",
-    "price": 3900,
+    "price": 39.00,
     "imageUrl": "teddy_2.jpg",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
@@ -25,7 +25,7 @@ const teddies = [
     ],
     "_id": "5beaaa8f1c9d440000a57d95",
     "name": "Lenny and Carl",
-    "price": 5900,
+    "price": 59.00,
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "imageUrl": "teddy_3.jpg"
   },
@@ -37,7 +37,7 @@ const teddies = [
     ],
     "_id": "5beaabe91c9d440000a57d96",
     "name": "Gustav",
-    "price": 4500,
+    "price": 45.00,
     "imageUrl": "teddy_4.jpg",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
@@ -49,7 +49,7 @@ const teddies = [
     ],
     "_id": "5beaacd41c9d440000a57d97",
     "name": "Garfunkel",
-    "price": 5500,
+    "price": 55.00,
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "imageUrl": "teddy_5.jpg"
   }
