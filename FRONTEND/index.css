@@ -9,6 +9,12 @@ nav {
   background-color: #f3e9f1;
 }
 
+h3 {
+  font-family: 'Bubbly';
+  font-size: 40px;
+  color: #ff4444;
+}
+
 h4 {
   font-family: 'Bubbly';
   font-size: 50px;
@@ -144,4 +150,21 @@ h5 {
 
 footer {
   background-color: #f3e9f1;
+  
+}
+.validation{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+ 
+}
+.teddie-commande{
+  height:100px;
+  margin-bottom: 40px;
+}
+
+.message{
+  font-size: larger;
+  font-weight: 600;
+  margin-bottom: 40px;
 }

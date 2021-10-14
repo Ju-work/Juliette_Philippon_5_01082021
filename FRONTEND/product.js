@@ -78,3 +78,5 @@ function ajoutStorage(response) {
     let line2 = localStorage.getItem('id')
   }
 }
+
+
