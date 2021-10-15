@@ -23,7 +23,7 @@ function showBasket() {
       '</td>' +
       '<td>' +
       //'<button class="basket-trash" class="fas fa-trash-alt"></button>' +
-      '<button class="fas fa-trash-alt" onClick=deleteProductToBasket()></button>' +
+      '<button class="fas fa-trash-alt" onclick= deleteProductToBasket()></button>' +
       '</td>' +
       '</tr>'
   })
@@ -53,13 +53,10 @@ function deleteProductToBasket(id) {
       console.log(product)
       if (product.quantity > 1) {
         product.quantity--
-        console.log(product)
       } else {
         removeProductInBasket = true
       }
     }
-
-    console.log(product)
   })
 
   if (removeProductInBasket) {
@@ -79,14 +76,13 @@ function deleteProductToBasket(id) {
   localStorage.setItem('basket', JSON.stringify(productsInBasket))
   showBasket()
   console.log('basket end =>', productsInBasket)
-
-  // suprimer une ligne du tableau
 }
-document
-  .getElementsByClassName('basket-trash')
-  .addEventListener('click', (e) => {
-    console.log('clic !')
-  })
+
+// suprimer une ligne du tableau
+// document.getElementsByClass('basket-trash').addEventListener('click', (e) => {
+//  console.log('clic !')
+//})
+
 // Validation du formulaire avant l'envoi au serveur
 
 function validateEmail(email) {
