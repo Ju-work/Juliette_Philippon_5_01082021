@@ -6,7 +6,7 @@ totalPrice()
 function showBasket() {
   let arrayCommande = JSON.parse(localStorage.getItem('basket'))
   var corpsHtml = '<tr>'
-  arrayCommande.forEach((element) => {
+  arrayCommande.forEach((element, index) => {
     console.log(element)
     corpsHtml =
       corpsHtml +
@@ -23,12 +23,20 @@ function showBasket() {
       '</td>' +
       '<td>' +
       //'<button class="basket-trash" class="fas fa-trash-alt"></button>' +
-      '<button class="fas fa-trash-alt" onclick= deleteProductToBasket()></button>' +
+      `<button data-productId="${index}" class=" delete-button fas fa-trash-alt"></button>` +
       '</td>' +
       '</tr>'
   })
   corpsHtml = corpsHtml + '</tr>'
   document.getElementById('basket-tablebody').innerHTML = corpsHtml
+  document.querySelectorAll('.delete-button').forEach((element)=>{
+    element.addEventListener('click',()=>{
+      console.log(element.dataset)
+      deleteProductToBasket(element.dataset.productid)
+      document.location.reload()
+    })
+  
+  })
 }
 
 function totalPrice() {
@@ -47,35 +55,17 @@ function deleteProductToBasket(id) {
   let removeProductInBasket = false
 
   productsInBasket = JSON.parse(localStorage.getItem('basket'))
-
-  productsInBasket.forEach((product) => {
-    if (product._id == id) {
-      console.log(product)
-      if (product.quantity > 1) {
-        product.quantity--
-      } else {
-        removeProductInBasket = true
-      }
-    }
+  console.log(id)
+  
+  
+  const newProductList = productsInBasket.filter((item, index) =>{
+    
+    return index !== Number(id)
   })
+  console.log(newProductList)
+  localStorage.setItem('basket', JSON.stringify(newProductList))
+  
 
-  if (removeProductInBasket) {
-    for (let i in productsInBasket) {
-      if (id === productsInBasket[i]['_id']) {
-        productsInBasket.splice(i, 1)
-
-        if (productsInBasket.length === 0) {
-          localStorage.removeItem('basket')
-        }
-
-        console.log('Remove => ', productsInBasket)
-      }
-    }
-  }
-
-  localStorage.setItem('basket', JSON.stringify(productsInBasket))
-  showBasket()
-  console.log('basket end =>', productsInBasket)
 }
 
 // suprimer une ligne du tableau
