@@ -93,7 +93,7 @@
         <div class="row">
           <div class="col-sm-6">
             <h2>Panier</h2>
-            
+
             <table class="table">
               <thead>
                 <tr>
@@ -110,66 +110,76 @@
             <p class="total">Total : <span id="total"></span></p>
           </div>
 
-
           <!-- le formulaire -->
 
-
           <div class="col-sm-6">
-            <h2>Vos coordonnées</h2>
-            
+            <h2>Valider votre commande</h2>
+
             <form id="form" name="contact" action="post">
+              
               <div class="form-group">
-                <label for="firstName">Prénom</label
-                ><span id="alerte-prénom"></span>
+                <label for="firstName">Prénom</label>
                 <input
                   id="firstName"
                   class="form-control"
                   type="text"
                   name="firstName"
-                  maxlength="20"
+                  required
+                  pattern="[a-zA-Z]{2,20}"
                 />
               </div>
+
               <div class="form-group">
-                <label for="lastName">Nom</label><span id="alerte-nom"></span>
+                <label for="lastName">Nom</label>
                 <input
                   id="lastName"
                   class="form-control"
                   type="text"
                   name="lastName"
-                  maxlength="45"
+                  required
+                  pattern="[a-zA-Z]{2,20}"
                 />
               </div>
+
               <div class="form-group">
                 <label for="address"
-                  >Adresse (numéro et libellé de la voie)</label
-                ><span id="alerte-adresse"></span>
+                  >Adresse (numéro et libellé de la voie)</label>
+
                 <input
                   id="address"
                   class="form-control"
                   type="text"
                   name="address"
-                  maxlength="80"
+                  required
+                  pattern="[a-zA-Z0-9\s]+"
                 />
               </div>
+
               <div class="form-group">
-                <label for="city">Ville</label><span id="alerte-ville"></span>
+                <label for="city">Ville</label>
                 <input
                   id="city"
                   class="form-control"
                   type="text"
                   name="city"
-                  maxlength="45"
+                  required
+                  pattern="[A-Za-z]{2,50}"
                 />
               </div>
+
               <div class="form-group">
-                <label for="email">Email</label><span id="alerte-email"></span>
+                <label for="email">Email</label>
                 <input
                   id="email"
                   class="form-control"
                   type="email"
                   name="email"
+                  required=""
+                  pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9._\-]+\.[a-zA-Z]{2,10}"
+                  
                 />
               </div>
+
               <button id="submit-btn" type="submit" class="ad-btn">
                 Passer la commande
               </button>
@@ -178,6 +188,7 @@
         </div>
       </div>
     </section>
+    
     <!-- basket + form end -->
 
     <footer class="py-4">
