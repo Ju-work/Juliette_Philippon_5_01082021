@@ -24,8 +24,7 @@ myForm.addEventListener('click', (e) => {
 
   // On valide l'adress
   const address = e.explicitOriginalTarget.form[2].value
-  //const rxAddress = [a-zA-Z0-9\s]+;
-  const rxAddress = ''
+  const rxAddress = /^[a-zA-Z0-9\s]+$/
 
   if (!rxAddress.test(address)) {
     alert('Merci de renseigner le numéro et libellé de la voie')
@@ -34,8 +33,7 @@ myForm.addEventListener('click', (e) => {
 
   // On valide la ville
   const city = e.explicitOriginalTarget.form[3].value
-  //const rxCity = [A-Za-z]{2,50};
-  const rxCity = ''
+  const rxCity = /^([A-Za-z]){2,50}$/
 
   if (!rxCity.test(city)) {
     alert('Merci de renseigner le nom de la ville')
@@ -44,16 +42,16 @@ myForm.addEventListener('click', (e) => {
 
   // On valide le format de l'adresse mail
   const email = e.explicitOriginalTarget.form[4].value
-  //const rxEmail = [a-zA-Z0-9._\-]+@[a-zA-Z0-9._\-]+\.[a-zA-Z]{2,10};
-  const rxEmail = ''
+  const rxEmail = /^[a-zA-Z0-9._\-]+@[a-zA-Z0-9._\-]+\.[a-zA-Z]{2,10}$/
+  //const rxEmail = ''
 
-  if (!rxEmail.text(email)) {
+  if (!rxEmail.test(email)) {
     alert("Merci d'entrer une adresse mail valide")
     return
   }
 
   // J'envoie mes valeurs au backend
-  const customer = {
+  const contact = {
     firstName: firstName,
     lastName: lastName,
     address: address,
@@ -61,23 +59,29 @@ myForm.addEventListener('click', (e) => {
     email: email,
   }
 
-  const listProductsFromStorage = [{ _id: '' }]
+  const listProductsFromStorage = JSON.parse(localStorage.getItem('basket'))
 
   const products = listProductsFromStorage.map((item) => item._id)
   console.log(products)
 
   const postData = {
-    customer,
+    contact,
     products,
   }
   console.log(postData)
 
-  fetch('http://localhost:3000/api/teddies/basket', {
+  fetch('http://localhost:3000/api/teddies/order', {
     method: 'POST',
+    headers: { 
+      "Content-Type":"application/json"
+    },
     body: JSON.stringify(postData),
   })
     .then((Response) => Response.json())
-    .then((data) => localStorage.setItem('order-confirm', JSON.stringify(data)))
+    .then((data) => {
+      localStorage.setItem('order-confirm', JSON.stringify(data))
+      document.location.href="commande.html"
+    })
 })
 
 console.log(myForm.firstName.value)
