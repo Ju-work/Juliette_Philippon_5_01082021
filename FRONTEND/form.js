@@ -62,25 +62,28 @@ myForm.addEventListener('click', (e) => {
   const listProductsFromStorage = JSON.parse(localStorage.getItem('basket'))
 
   const products = listProductsFromStorage.map((item) => item._id)
-  console.log(products)
-
   const postData = {
     contact,
     products,
   }
-  console.log(postData)
-
   fetch('http://localhost:3000/api/teddies/order', {
     method: 'POST',
-    headers: { 
-      "Content-Type":"application/json"
+    headers: {
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(postData),
   })
     .then((Response) => Response.json())
     .then((data) => {
-      localStorage.setItem('order-confirm', JSON.stringify(data))
-      document.location.href="commande.html"
+      //console.log('test')
+      console.log(data)
+      localStorage.setItem('orderID', data.orderId)
+      document.location.href = 'order.html'
+      return data
+    })
+    .catch((err) => {
+      alert("L'erreur suivante est apparue : " + err)
+      return false
     })
 })
 

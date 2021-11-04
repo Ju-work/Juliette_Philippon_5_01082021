@@ -1,1 +1,2 @@
-localStorage.getItem('orderCommand', JSON.parse(data))
+console.log('testdsqdsqdsq')
+console.log(localStorage.getItem('orderID'))
