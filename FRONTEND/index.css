@@ -170,3 +170,10 @@ footer {
   font-weight: 600;
   margin-bottom: 40px;
 }
+
+.num-order{
+  font-size: large;
+  font-weight: 600;
+  display: inline-flex;
+  flex-wrap: nowrap;
+}
