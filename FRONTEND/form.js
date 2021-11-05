@@ -88,3 +88,4 @@ myForm.addEventListener('click', (e) => {
 })
 
 console.log(myForm.firstName.value)
+console.log(myForm.city.value)

@@ -11,6 +11,8 @@
  <p>Orinoco vous remercie pour votre achat !</p>
  <p>À bientôt !</p>`
 
-    
+function clearStorage(){
+    localStorage.clear
+}
 
 

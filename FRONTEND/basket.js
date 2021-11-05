@@ -54,12 +54,10 @@ function deleteProductToBasket(id) {
   let removeProductInBasket = false
 
   productsInBasket = JSON.parse(localStorage.getItem('basket'))
-  console.log(id)
 
   const newProductList = productsInBasket.filter((item, index) => {
     return index !== Number(id)
   })
-  console.log(newProductList)
   localStorage.setItem('basket', JSON.stringify(newProductList))
 }
 

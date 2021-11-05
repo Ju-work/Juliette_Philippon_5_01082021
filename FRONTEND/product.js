@@ -61,9 +61,9 @@ function getDataWithId(id) {
   )
 }
 
-function test(id) {
-  console.log(id)
-}
+// function test(id) {
+//   console.log(id)
+// }
 
 displayProductDetail()
 
