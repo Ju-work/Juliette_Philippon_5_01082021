@@ -4,39 +4,31 @@ totalPrice()
 // On affiche le panier dans le localstorage
 
 function showBasket() {
+  
   let arrayCommande = JSON.parse(localStorage.getItem('basket'))
-  var corpsHtml = '<tr>'
+ 
   arrayCommande.forEach((element, index) => {
-    console.log(element)
-    corpsHtml =
-      corpsHtml +
-      '<tr>' +
-      '<td>' +
-      element.name +
-      '</td>' +
-      '<td>' +
-      element.colors +
-      '</td>' +
-      '<td>' +
-      element.price +
-      '€' +
-      '</td>' +
-      '<td>' +
-      //'<button class="basket-trash" class="fas fa-trash-alt"></button>' +
-      `<button data-productId="${index}" class=" delete-button fas fa-trash-alt"></button>` +
-      '</td>' +
-      '</tr>'
+
+    document.getElementById('basket-tablebody').innerHTML +=`
+      <td>${element.name}</td>
+      <td>${element.colors}</td>
+      <td>${element.price} €</td>
+      <td><button data-productId="${index}" class=" delete-button fas fa-trash-alt"></button></td>`
+      
   })
-  corpsHtml = corpsHtml + '</tr>'
-  document.getElementById('basket-tablebody').innerHTML = corpsHtml
+
+  // On supprime une ligne du tableau
+  
   document.querySelectorAll('.delete-button').forEach((element) => {
+    
     element.addEventListener('click', () => {
-      console.log(element.dataset)
       deleteProductToBasket(element.dataset.productid)
       document.location.reload()
     })
   })
 }
+
+// Faire la somme en € des produits du panier
 
 function totalPrice() {
   let price = 0
@@ -61,5 +53,4 @@ function deleteProductToBasket(id) {
   localStorage.setItem('basket', JSON.stringify(newProductList))
 }
 
-////////////////////////// troisième méthode
 

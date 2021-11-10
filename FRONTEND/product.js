@@ -5,7 +5,9 @@
 // Afficher le détail avec le résultat de l'appel api
 
 function displayProductDetail() {
+  
   const productId = getIdFromQueryParams()
+  
   getDataWithId(productId).then((result) => {
     document.getElementById(
       'product_detail'
@@ -36,7 +38,9 @@ function displayProductDetail() {
       </section>`
 
     document.getElementById('add_basket').addEventListener('click', () => {
+      
       // selection de la select liste
+     
       var select = document.getElementById('color');
       var value = select.options[select.selectedIndex].value;
 
@@ -44,11 +48,14 @@ function displayProductDetail() {
       result.colors = value
       array.push(result)
       localStorage.setItem('basket', JSON.stringify(array))
+      
+      alert("votre produit est ajouté au panier")
     })
   })
 }
 
 // retourne la valeur du paramètre id
+
 function getIdFromQueryParams() {
   let params = new URLSearchParams(document.location.search.substring(1))
   let id = params.get('id')
@@ -61,9 +68,7 @@ function getDataWithId(id) {
   )
 }
 
-// function test(id) {
-//   console.log(id)
-// }
+
 
 displayProductDetail()
 

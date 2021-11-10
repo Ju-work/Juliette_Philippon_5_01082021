@@ -8,9 +8,12 @@ myForm.addEventListener('click', (e) => {
   const firstName = e.explicitOriginalTarget.form[0].value
   const rxFirstName = /^([a-zA-Z]){2,}$/
 
-  if (!rxFirstName.test(firstName)) {
-    alert('Merci de renseigner un prénom valide')
-    return
+  // if (!rxFirstName.test(firstName)) {
+  //   alert('Merci de renseigner un prénom valide')
+  //   return
+  // }
+  if (rxFirstName !== firstName){
+    throw Error ("entrez un prénom valide")
   }
 
   // On valide le prénom
@@ -43,8 +46,7 @@ myForm.addEventListener('click', (e) => {
   // On valide le format de l'adresse mail
   const email = e.explicitOriginalTarget.form[4].value
   const rxEmail = /^[a-zA-Z0-9._\-]+@[a-zA-Z0-9._\-]+\.[a-zA-Z]{2,10}$/
-  //const rxEmail = ''
-
+  
   if (!rxEmail.test(email)) {
     alert("Merci d'entrer une adresse mail valide")
     return
@@ -75,9 +77,8 @@ myForm.addEventListener('click', (e) => {
   })
     .then((Response) => Response.json())
     .then((data) => {
-      //console.log('test')
-      console.log(data)
       localStorage.setItem('orderID', data.orderId)
+      localStorage.setItem('firstName', data.firstName)
       document.location.href = 'order.html'
       return data
     })
