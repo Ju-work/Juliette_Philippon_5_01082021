@@ -5,9 +5,8 @@
 // Afficher le détail avec le résultat de l'appel api
 
 function displayProductDetail() {
-  
   const productId = getIdFromQueryParams()
-  
+
   getDataWithId(productId).then((result) => {
     document.getElementById(
       'product_detail'
@@ -27,7 +26,9 @@ function displayProductDetail() {
             <p>
               <label class="lens-label" for="objectif">Sélectionnez une couleur :</label><br>
               <select class="custom-select" name="color" id="color">
-              ${result.colors.map((item) => `<option value=${item}>${item}</option>`)}
+              ${result.colors.map(
+                (item) => `<option value=${item}>${item}</option>`
+              )}
               </select>
             </p>
           </form>
@@ -38,18 +39,17 @@ function displayProductDetail() {
       </section>`
 
     document.getElementById('add_basket').addEventListener('click', () => {
-      
       // selection de la select liste
-     
-      var select = document.getElementById('color');
-      var value = select.options[select.selectedIndex].value;
+
+      var select = document.getElementById('color')
+      var value = select.options[select.selectedIndex].value
 
       let array = JSON.parse(localStorage.getItem('basket') || '[]')
       result.colors = value
       array.push(result)
       localStorage.setItem('basket', JSON.stringify(array))
-      
-      alert("votre produit est ajouté au panier")
+
+      alert('votre produit est ajouté au panier')
     })
   })
 }
@@ -68,19 +68,15 @@ function getDataWithId(id) {
   )
 }
 
-
-
 displayProductDetail()
 
-// il faut écouter l'évenement "click"
+// il faut écouter l'évenement "clic"
 // et ajouter le produit sélectionné dans le localstorage
 
 function ajoutStorage(response) {
   function clic() {
-    console.log('Clic !')
 
     let line = localStorage.getItem('product')
     let line2 = localStorage.getItem('id')
   }
 }
-

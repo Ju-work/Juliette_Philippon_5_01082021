@@ -89,7 +89,6 @@
 
     <!-- bascket + form -->
     <section class="products-in-basket">
-      
       <div class="container">
         <div class="row">
           <div class="col-sm-6">
@@ -124,8 +123,6 @@
                   class="form-control"
                   type="text"
                   name="firstName"
-                  required
-                  pattern="[a-zA-Z]{2,20}"
                 />
               </div>
 
@@ -136,8 +133,6 @@
                   class="form-control"
                   type="text"
                   name="lastName"
-                  required
-                  pattern="[a-zA-Z]{2,20}"
                 />
               </div>
 
@@ -151,21 +146,12 @@
                   class="form-control"
                   type="text"
                   name="address"
-                  required
-                  pattern="[a-zA-Z0-9\s]+"
                 />
               </div>
 
               <div class="form-group">
                 <label for="city">Ville</label>
-                <input
-                  id="city"
-                  class="form-control"
-                  type="text"
-                  name="city"
-                  required
-                  pattern="[A-Za-z]{2,50}"
-                />
+                <input id="city" class="form-control" type="text" name="city" />
               </div>
 
               <div class="form-group">
@@ -175,8 +161,6 @@
                   class="form-control"
                   type="email"
                   name="email"
-                  required=""
-                  pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9._\-]+\.[a-zA-Z]{2,10}"
                 />
               </div>
 
